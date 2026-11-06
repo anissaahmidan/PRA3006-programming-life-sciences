@@ -18,7 +18,7 @@ I used SPARQL endpoints to query Wikidata and retrieve:
 
 The SPARQL queries are executed from my JavaScript code. The returned data is then cleaned and transformed into the format required for the visualisation.
 
-I wrote three queries, which are saved in the queries folder. Their results were also saved as CSV files in the data folder.
+I wrote three queries, which are saved in the queries folder. 
 
 | Query | File | What it returns | Result |
 |---|---|---|---|
@@ -38,5 +38,5 @@ Their connections are then shown by:
 ## 4. Repository Structure
 - index.html: the home page of the website
 - queries folder: the three SPARQL queries
-- data folder: the query results saved as CSV files
+
 
