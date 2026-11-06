@@ -1,0 +1,4 @@
+SELECT ?subtype ?subtypeLabel WHERE {
+  ?subtype wdt:P279* wd:Q7140388 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
