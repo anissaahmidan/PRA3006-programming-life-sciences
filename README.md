@@ -1,7 +1,7 @@
-# Genes and Drugs Linked to Focal Epilepsy
+# PRA3006 : Programming in the life sciences
 This project is a web-page based visualisation tool developed for the course 'Programming in the Life Sciences' at Maastricht University. It explores which genes and which drugs are linked to focal epilepsy, using open data from Wikidata.
 ## 1. My Research Question
-Which genes and which drugs are linked to focal epilepsy?
+Which genes and which drugs are linked to focal epilepsy and its subtypes, and which of them are shared between subtypes?
 ## 2. Aim of this Project
 My goal is to make the relationship between focal epilepsy, genes and drugs visible and explorable for users who are not familiar with raw data, by turning complex tables into intuitive visualisations that make patterns easier to understand.
 The website answers the research question by:
