@@ -1,0 +1,5 @@
+SELECT ?subtype ?subtypeLabel ?drug ?drugLabel WHERE {
+  ?subtype wdt:P279* wd:Q7140388 .
+  ?subtype wdt:P2176 ?drug .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
