@@ -24,7 +24,7 @@ I wrote three queries, which are saved in the queries folder.
 |---|---|---|---|
 | 1. Subtypes | queries/query1_subtypes.rq | Focal epilepsy and all its subclasses, at any depth | 47 items (focal epilepsy itself plus 46 subtypes) |
 | 2. Genes | queries/query2_genes.rq | Genes linked to focal epilepsy and its subtypes | 12 gene links across 8 subtypes |
-| 3. Drugs | queries/query3_drugs.rq | Drugs used to treat focal epilepsy and its subtypes | 24 drug links covering 20 different drugs across 4 subtypes |
+| 3. Drugs | queries/query3_drug.rq | Drugs used to treat focal epilepsy and its subtypes | 24 drug links covering 20 different drugs across 4 subtypes |
 
 ### 3.2 Analysis
 To answer the research question, I focused on two aspects:
