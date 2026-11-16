@@ -37,6 +37,8 @@ Their connections are then shown by:
 - the number of genes and drugs per subtype
 ## 4. Repository Structure
 - index.html: the home page of the website
+- script.js: the JavaScript that sends the SPARQL queries to Wikidata and shows the results on the page
 - queries folder: the three SPARQL queries
+- LICENSE: the GPL-3.0 license
 
 
