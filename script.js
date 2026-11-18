@@ -43,7 +43,8 @@ function countPerSubtype(rows) {
 function drawBarChart(data, containerId) {
   // space around the chart (big left margin for the long subtype names)
   const margin = { top: 10, right: 30, bottom: 30, left: 330 };
-  const width = 700 - margin.left - margin.right;
+  const totalWidth = document.getElementById(containerId).clientWidth;
+  const width = totalWidth - margin.left - margin.right;
   const height = data.length * 30;
 
   const svg = d3.select("#" + containerId)
