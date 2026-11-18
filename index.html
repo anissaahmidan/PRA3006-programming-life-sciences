@@ -11,13 +11,42 @@
     <p>Data loaded live from Wikidata with SPARQL.</p>
   </header>
 
-  <h2>Genes per subtype</h2>
-  <div id="genes-chart"></div>
-  <div id="genes-table">Loading...</div>
+  <h2>About this website</h2>
+  <p>
+    Epilepsy is a brain disorder where people have repeated seizures. In focal epilepsy,
+    the seizures start in one specific area of the brain, for example the temporal or the
+    frontal lobe. It is the most common type of epilepsy in adults, and it has many subtypes.
+  </p>
+  <p>
+    Some subtypes are caused by changes in specific genes, and different subtypes are
+    treated with different drugs. On this website you can see which genes and which drugs
+    are linked to each subtype, using data from Wikidata.
+  </p>
+  <p>
+    I chose this topic because my bachelor thesis is also about epilepsy, so I wanted to
+    learn more about the genetic side and the treatments.
+  </p>
 
-  <h2>Drugs per subtype</h2>
-  <div id="drugs-chart"></div>
-  <div id="drugs-table">Loading...</div>
+  <h2>Research question</h2>
+  <p>
+    Which genes and which drugs are linked to focal epilepsy and its subtypes,
+    and which of them are shared between subtypes?
+  </p>
+
+  <h2>What I found</h2>
+  <p>
+    In the Wikidata data, no gene is shared between subtypes: every gene is linked to only one subtype.
+    Drugs are different. Lamotrigine, carbamazepine and levetiracetam are each linked to more than one
+    subtype. Levetiracetam is called "(S)-etiracetam" in Wikidata, which is why it has a different name
+    in the tables.
+  </p>
+
+  <h2>How to use this website</h2>
+  <p>
+    Go to the Genes page or the Drugs page. Each page shows a bar chart with the number
+    of genes or drugs per subtype, and a table with the full list below it.
+    The data is loaded live from Wikidata every time you open a page, so it can take a few seconds.
+  </p>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="script.js"></script>
