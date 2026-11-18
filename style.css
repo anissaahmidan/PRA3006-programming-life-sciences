@@ -1,23 +1,40 @@
 body {
-  font-family: Times New Roman, serif;
-  background-color: hsl(0, 22%, 64%);
-  color: white;
+  font-family: "Modern Bold Serif", serif;
+  background-color: #F7F4D5;
+  color: #829958;
   margin: 40px;
 }
 
 table {
   border-collapse: collapse;
-  background-color: hsl(0, 25%, 27%);
+  background-color: #0A3323;
   margin-top: 15px;
 }
 
 th, td {
-  border: 1px solid hsl(0, 38%, 3%);
+  border: 1px solid #829958;
   padding: 6px 12px;
   text-align: left;
 }
 
 th {
-  background-color:hsl(0, 25%, 27%);
-  color: white;
+  background-color: #0A3323;
+  color: #829958;
+}
+
+header {
+  background-color: #829958;
+  color: #105666;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0 0 5px 0;
+}
+
+h2 {
+  border-bottom: 2px solid #829958;
+  padding-bottom: 5px;
 }
