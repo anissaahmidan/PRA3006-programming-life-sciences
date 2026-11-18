@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Network | Focal epilepsy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a class="logo" href="index.html">PRA3006 : Focal Epilepsy Project</a>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="genes.html">Genes</a>
+      <a href="drugs.html">Drugs</a>
+      <a href="network.html">Network</a>
+    </div>
+  </nav>
+
+  <main>
+    <header>
+      <h1>Genes and drugs linked to focal epilepsy</h1>
+      <p>Data loaded live from Wikidata with SPARQL.</p>
+    </header>
+
+        <h2>Network of subtypes, genes and drugs</h2>
+    <p>
+      Each circle is a subtype, a gene or a drug. A line means they are linked in Wikidata.
+      Drugs that are connected to more than one subtype are shared between subtypes.
+      Hover over a circle to see its name, and drag circles to move them.
+    </p>
+
+    <div class="legend">
+      <span class="dot dot-subtype"></span> Subtype
+      <span class="dot dot-gene"></span> Gene
+      <span class="dot dot-drug"></span> Drug
+    </div>
+
+    <div id="network"></div>
+    <div id="tooltip"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="script.js"></script>
+</body>
+</html>

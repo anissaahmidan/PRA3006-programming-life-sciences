@@ -2,20 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Focal epilepsy: genes and drugs</title>
+  <title>Genes | Focal epilepsy</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Genes and drugs linked to focal epilepsy</h1>
-    <p>Data loaded live from Wikidata with SPARQL.</p>
-  </header>
+  <nav>
+    <a class="logo" href="index.html">PRA3006 : Focal Epilepsy Project</a>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="genes.html">Genes</a>
+      <a href="drugs.html">Drugs</a>
+      <a href="network.html">Network</a>
+    </div>
+  </nav>
 
-  <h2>Genes per subtype</h2>
-  <div id="genes-chart"></div>
-  <div id="genes-table">Loading...</div>
+  <main>
+    <header>
+      <h1>Genes and drugs linked to focal epilepsy</h1>
+      <p>Data loaded live from Wikidata with SPARQL.</p>
+    </header>
 
-  
+    <h2>Genes per subtype</h2>
+    <div id="genes-chart"></div>
+    <div id="genes-table">Loading...</div>
+  </main>
+
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="script.js"></script>
 </body>

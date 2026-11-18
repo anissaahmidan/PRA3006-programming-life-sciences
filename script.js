@@ -209,3 +209,8 @@ function drawNetwork(network, containerId) {
         .attr("y", d => d.y + 26);
     });
 }
+if (document.getElementById("network")) {
+  Promise.all([runQuery(genesQuery), runQuery(drugsQuery)]).then(([geneRows, drugRows]) => {
+    drawNetwork(buildNetwork(geneRows, drugRows), "network");
+  });
+}
