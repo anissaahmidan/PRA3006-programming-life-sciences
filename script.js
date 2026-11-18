@@ -78,14 +78,134 @@ function drawBarChart(data, containerId) {
     .attr("height", y.bandwidth())
 }
 
-runQuery(genesQuery).then(rows => {
-  console.log(rows);
-  drawBarChart(countPerSubtype(rows), "genes-chart");
-  showTable(rows, "genes-table", "Gene", "geneLabel");
-});
+if (document.getElementById("genes-chart")) {
+  runQuery(genesQuery).then(rows => {
+    console.log(rows);
+    drawBarChart(countPerSubtype(rows), "genes-chart");
+    showTable(rows, "genes-table", "Gene", "geneLabel");
+  });
+}
 
-runQuery(drugsQuery).then(rows => {
-  console.log(rows);
-  drawBarChart(countPerSubtype(rows), "drugs-chart");
-  showTable(rows, "drugs-table", "Drug", "drugLabel");
-});
+if (document.getElementById("drugs-chart")) {
+  runQuery(drugsQuery).then(rows => {
+    console.log(rows);
+    drawBarChart(countPerSubtype(rows), "drugs-chart");
+    showTable(rows, "drugs-table", "Drug", "drugLabel");
+  });
+}
+
+function buildNetwork(geneRows, drugRows) {
+  const nodes = [];
+  const links = [];
+  const seen = new Set(); // names that already have a node
+
+  function addNode(name, type) {
+    if (!seen.has(name)) {
+      seen.add(name);
+      nodes.push({ id: name, type: type });
+    }
+  }
+
+  for (const row of geneRows) {
+    addNode(row.subtypeLabel.value, "subtype");
+    addNode(row.geneLabel.value, "gene");
+    links.push({ source: row.subtypeLabel.value, target: row.geneLabel.value });
+  }
+
+  for (const row of drugRows) {
+    addNode(row.subtypeLabel.value, "subtype");
+    addNode(row.drugLabel.value, "drug");
+    links.push({ source: row.subtypeLabel.value, target: row.drugLabel.value });
+  }
+
+  return { nodes: nodes, links: links };
+}
+
+function drawNetwork(network, containerId) {
+  const width = document.getElementById(containerId).clientWidth;
+  const height = 700;
+
+  function space(d) {
+    if (d.type === "subtype") {
+      return d.id.length * 3.2;
+    }
+    return 14;
+  }
+
+  const svg = d3.select("#" + containerId)
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  const tooltip = d3.select("#tooltip");
+
+  const link = svg.append("g")
+    .selectAll("line")
+    .data(network.links)
+    .enter()
+    .append("line")
+    .attr("class", "link");
+
+  const node = svg.append("g")
+    .selectAll("circle")
+    .data(network.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", d => d.type === "subtype" ? 12 : 7)
+    .attr("class", d => d.type)
+    .on("mouseover", (event, d) => {
+      tooltip.style("opacity", 1).text(d.id + " (" + d.type + ")");
+      link.classed("highlight", l => l.source === d || l.target === d);
+    })
+    .on("mousemove", event => {
+      tooltip.style("left", (event.pageX + 12) + "px")
+        .style("top", (event.pageY - 10) + "px");
+    })
+    .on("mouseout", () => {
+      tooltip.style("opacity", 0);
+      link.classed("highlight", false);
+    })
+    .call(d3.drag()
+      .on("start", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      })
+      .on("drag", (event, d) => {
+        d.fx = event.x;
+        d.fy = event.y;
+      })
+      .on("end", (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+      }));
+
+  const label = svg.append("g")
+    .selectAll("text")
+    .data(network.nodes.filter(d => d.type === "subtype"))
+    .enter()
+    .append("text")
+    .attr("class", "network-label")
+    .attr("text-anchor", "middle")
+    .text(d => d.id);
+
+  const simulation = d3.forceSimulation(network.nodes)
+    .force("link", d3.forceLink(network.links).id(d => d.id).distance(45))
+    .force("charge", d3.forceManyBody().strength(-60))
+    .force("collide", d3.forceCollide().radius(d => space(d)))
+    .force("x", d3.forceX(width / 2).strength(0.05))
+    .force("y", d3.forceY(height / 2).strength(0.08))
+    .on("tick", () => {
+      node.attr("cx", d => d.x = Math.max(space(d), Math.min(width - space(d), d.x)))
+        .attr("cy", d => d.y = Math.max(20, Math.min(height - 30, d.y)));
+
+      link.attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      label.attr("x", d => d.x)
+        .attr("y", d => d.y + 26);
+    });
+}
