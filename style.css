@@ -1,5 +1,5 @@
 body {
-  font-family: "Modern Bold Serif", serif;
+  font-family: "Times New Roman", serif;
   background-color: #F7F4D5;
   color: #829958;
   margin: 40px;
@@ -37,4 +37,17 @@ header h1 {
 h2 {
   border-bottom: 2px solid #829958;
   padding-bottom: 5px;
+}
+
+rect {
+  fill: #D3968C;
+}
+
+rect:hover {
+  fill: #105666;
+}
+
+svg text {
+  font-family: "Times New Roman", serif;
+  font-size: 13px;
 }

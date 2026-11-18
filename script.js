@@ -75,7 +75,6 @@ function drawBarChart(data, containerId) {
     .attr("y", d => y(d.subtype))
     .attr("width", d => x(d.count))
     .attr("height", y.bandwidth())
-    .attr("fill", "steelblue");
 }
 
 runQuery(genesQuery).then(rows => {
