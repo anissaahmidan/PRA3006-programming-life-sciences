@@ -14,14 +14,12 @@ I chose this topic because my bachelor thesis is also about epilepsy. I wanted t
 
 ## 3. How to use the website
 
-1. Download this repository: click the green **Code** button on GitHub and choose **Download ZIP**, then unzip it. Or clone it:
+1. Download this repository: either **Download ZIP**, then unzip it. Or clone it:
    ```
    git clone https://github.com/anissaahmidan/PRA3006-programming-life-sciences.git
    ```
-2. Open `index.html` in a web browser (for example Chrome or Firefox).
+2. Open `index.html` in a web browser.
 3. Use the menu at the top to go to the different pages.
-
-You need an internet connection, because the website loads the data from Wikidata and the d3.js library from the internet. Loading can take a few seconds.
 
 ### The pages
 
@@ -40,7 +38,7 @@ All data comes from [Wikidata](https://www.wikidata.org), a free and open knowle
 
 ### 4.2 Queries
 
-The queries are saved in the `queries` folder. Queries 2 and 3 are also written in `script.js`, which sends them to Wikidata every time a page is opened.
+The queries are saved in the `queries` folder. Queries 2 and 3 are also written in `script.js`.
 
 | Query | File | What it returns | Result (16 Nov 2026) |
 |---|---|---|---|
